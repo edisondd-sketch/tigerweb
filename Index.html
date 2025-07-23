@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eric Gutiérrez López - Coach Personal</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #f1f1f1;
+    }
+
+    @keyframes marquee {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    @keyframes neonPulse {
+      from { box-shadow: 0 0 10px #ffcc00; }
+      to { box-shadow: 0 0 40px #ff8800, 0 0 60px #ff8800 inset; }
+    }
+
+    @keyframes flicker {
+      0%, 100% { opacity: 1; }
+      40% { opacity: 0.8; }
+      60% { opacity: 0.6; }
+      80% { opacity: 0.9; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .led-banner {
+      background: radial-gradient(circle, #ffd700, #ff8800);
+      background-image: url('fondo-gym.png'), url('fondo-gym.png');
+      background-repeat: no-repeat;
+      background-position: left center, right center;
+      background-size: contain;
+      color: #fff;
+      font-size: 2rem;
+      font-weight: bold;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 4px solid #ffcc00;
+      box-shadow: 0 0 30px #ffcc00;
+      animation: neonPulse 2s infinite alternate;
+      text-shadow: 0 0 5px #fff, 0 0 10px #ffcc00, 0 0 20px #ff8800;
+    }
+
+    .led-banner span {
+      white-space: nowrap;
+      animation: marquee 12s linear infinite, flicker 3s infinite;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    header img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 12px;
+      border: 3px solid #f1f1f1;
+      box-shadow: 0 0 15px #f1f1f1;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      animation: slideDown 1s ease-out;
+    }
+
+    header h2, .sub-text {
+      margin: 0.2rem 0;
+      font-weight: normal;
+      color: #ccc;
+    }
+
+    .highlight {
+      font-weight: bold;
+      color: #ffd700;
+      font-size: 1.2rem;
+      margin-top: 1rem;
+    }
+
+    .section-title {
+      text-align: center;
+      margin: 30px 0 10px;
+      font-size: 1.5rem;
+    }
+
+    .gallery-row {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding: 10px;
+      animation: fadeIn 1.5s ease-in;
+    }
+
+    .gallery-row img, .center-img img, .carousel-item img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    }
+
+    .center-img {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .highlight-box {
+      max-width: 800px;
+      margin: 20px auto;
+      background-color: #1e1e1e;
+      padding: 20px;
+      border-left: 5px solid #ffd700;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+      font-style: italic;
+      text-align: center;
+      line-height: 1.6;
+      font-size: 1.1rem;
+    }
+
+    .carousel-container {
+      position: relative;
+      width: 90%;
+      margin: 40px auto;
+      overflow: hidden;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-item {
+      min-width: 100%;
+      text-align: center;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0,0,0,0.5);
+      color: white;
+      font-size: 2rem;
+      border: none;
+      cursor: pointer;
+      padding: 10px;
+    }
+
+    .carousel-btn.left { left: 10px; }
+    .carousel-btn.right { right: 10px; }
+
+    .video-section {
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .video-section video {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 12px;
+    }
+
+    .video-section p {
+      margin-top: 15px;
+      font-size: 1.3rem;
+      font-style: italic;
+    }
+
+    .social-section {
+      background: #1c1c1c;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .social-section h2 {
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+    }
+
+    .social-section a {
+      display: inline-block;
+      margin: 10px 15px;
+      color: #ffd700;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: transform 0.3s ease;
+    }
+
+    .social-section a:hover {
+      transform: scale(1.05);
+      text-shadow: 0 0 10px #ffd700;
+    }
+
+    iframe {
+      width: 100%;
+      max-width: 500px;
+      height: 300px;
+      border: none;
+      border-radius: 12px;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.8rem; }
+      .highlight { font-size: 1rem; }
+      .carousel-btn { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="led-banner">
+    <span>TIGER FORCE &nbsp; TIGER FORCE &nbsp; TIGER FORCE &nbsp; TIGER FORCE</span>
+  </div>
+
+  <header>
+    <img src="Logo.jpeg" alt="Foto de Eric Gutiérrez López">
+    <h1>Eric Gutiérrez López</h1>
+    <h2>Entrenador profesional en musculación y fitness</h2>
+    <div class="sub-text">Te acompaño paso a paso para que no sientas que estás solo en el proceso</div>
+    <div class="sub-text">Asesorías presenciales y online</div>
+    <div class="highlight">Realizo planes personalizados que se ajusten a tu estilo de vida y a tus objetivos. Acompañado de mi mano, haré tu objetivo el mío. ¡Solo decide y conocerás el éxito!</div>
+  </header>
+
+  <section>
+    <div class="section-title">Diplomas</div>
+    <div class="gallery-row">
+      <img src="diploma.jpeg" alt="Diploma 1">
+      <img src="diploma 2.jpeg" alt="Diploma 2">
+      <img src="diploma 3.jpeg" alt="Diploma 3">
+    </div>
+    <div class="highlight-box">Siempre capacitándome para darte el mejor servicio</div>
+  </section>
+
+  <section>
+    <div class="section-title">Familia Tiger Force</div>
+    <div class="center-img">
+      <img src="familia tiger.jpeg" alt="Familia Tiger">
+      <img src="tigermujeres.jpg" alt="Tigermujeres" style="max-width: 360px; width: 100%; height: auto;">
+    </div>
+    <div class="highlight-box">En este proceso no estarás solo. Somos una familia, donde conocerás la fraternidad y compartirás el mismo objetivo: tu mejor versión.</div>
+  </section>
+
+  <section>
+    <div class="section-title">Historias de Éxito</div>
+    <div class="carousel-container">
+      <button class="carousel-btn left" onclick="moveCarousel(-1)">❮</button>
+      <div class="carousel-track" id="carousel-track">
+        <div class="carousel-item"><img src="cambio fer.jpeg" alt="Cambio Fer"></div>
+        <div class="carousel-item"><img src="chim.jpeg" alt="Chim"></div>
+        <div class="carousel-item"><img src="pao cambio.jpeg" alt="Pao Cambio"></div>
+        <div class="carousel-item"><img src="premio fer.jpeg" alt="Premio Fer"></div>
+        <div class="carousel-item"><img src="Lalo.jpeg" alt="Lalo"></div>
+        <div class="carousel-item"><img src="chimelias.jpg" alt="chimelias"></div>
+        <div class="carousel-item"><img src="chimganando.jpg" alt="chimganando"></div>
+      </div>
+      <button class="carousel-btn right" onclick="moveCarousel(1)">❯</button>
+    </div>
+  </section>
+
+  <section class="video-section">
+    <video autoplay muted loop>
+      <source src="video fer.mp4" type="video/mp4">
+      Tu navegador no soporta el video.
+    </video>
+    <p>¿Tienes la motivación de un niño o la disciplina de un hombre?</p>
+  </section>
+
+  <section>
+    <div class="section-title">Información</div>
+    <div class="highlight-box" style="text-align: left;">
+      <strong>Incluye:</strong>
+      <ul>
+        <li>Evaluación de la composición corporal y condición física</li>
+        <li>Plan de alimentación</li>
+        <li>Rutina de entrenamiento</li>
+        <li>Esquema de suplementación</li>
+        <li>Asistencia personalizada en el entrenamiento (costo adicional si es requerida)</li>
+      </ul>
+      <br>
+      <strong>REQUISITOS (Asesoría presencial):</strong>
+      <ul>
+        <li>Asistir en ayunas o con al menos 3 horas después de ingerir alimentos o bebidas</li>
+        <li>Vestimenta: short o licra corta (cuádriceps descubiertos) y top con espalda descubierta o bikini</li>
+        <li>No usar crema ni aceites corporales</li>
+        <li>Evitar aplicar talco u otros productos en los pies antes de la evaluación</li>
+      </ul>
+      <br>
+      <strong>REQUISITOS DE ASESORÍA EN LÍNEA:</strong>
+      <ul>
+        <li>Enviar fotos de los 4 perfiles</li>
+        <li>Enviar peso corporal en ayunas (kg)</li>
+        <li>Enviar estatura, edad y demás datos requeridos durante la asesoría</li>
+      </ul>
+      <p style="margin-top: 10px;"><em>Pregunta por nuestras promociones.</em></p>
+    </div>
+  </section>
+
+  <section class="social-section">
+    <h2>Sígueme y contáctame</h2>
+    <a href="https://www.instagram.com/team_tiger_force/" target="_blank">📸 Instagram: @team_tiger_force</a><br>
+    <a href="https://wa.me/+52726596777" target="_blank">📱 WhatsApp: 722 659 6777</a><br>
+    <iframe src="https://www.google.com/maps?q=4CXC%2B7GG+Santa+Mar%C3%ADa+Ray%C3%B3n,+Estado+de+M%C3%A9xico&output=embed" allowfullscreen loading="lazy"></iframe>
+  </section>
+
+  <script>
+    let currentIndex = 0;
+    function moveCarousel(direction) {
+      const track = document.getElementById("carousel-track");
+      const items = document.querySelectorAll(".carousel-item");
+      const total = items.length;
+      currentIndex = (currentIndex + direction + total) % total;
+      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+  </script>
+</body>
+</html>
